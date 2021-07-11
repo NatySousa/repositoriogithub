@@ -35,14 +35,16 @@
 {
     <div class="row">
         <div class="col-md-12">
-            <table class="table">
-                <tr>
-                    <th>Nome</th>
-                    <th>Proprietario</th>
-                    <th>Nome Completo</th>
-                    <th>URL</th>
-                    <th></th>
-                </tr>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Proprietario</th>
+                        <th>Nome Completo</th>
+                        <th>URL</th>
+                        <th></th>
+                    </tr>
+                </thead>                
 
                 @foreach (var item in Model.Results)
                 {
@@ -62,11 +64,10 @@
                         </td>
 
                         <td>
-                            @Html.ActionLink("Detalhe", "DetailsRepository", new { name = item.Name, item.Owner.Login })
+                            <a>
+                                @Html.ActionLink("Detalhe", "DetailsRepository", new { name = item.Name, item.Owner.Login }, new { @class = "btn btn-info" })
+                            </a>                            
                         </td>
-                        @*<td>
-                            @Html.ActionLink("Salvar Favorito", "FavoriteSave", new { owner = item.Owner.Login, name = item.Name, language = item.Language, lastUpdat = item.LastUpdate, description = item.Description })
-                        </td>*@
                     </tr>
                 }
 

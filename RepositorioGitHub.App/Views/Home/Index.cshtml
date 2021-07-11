@@ -6,51 +6,56 @@
 
 <h2>Teste Desenvolvedor W12</h2>
 
-<div class="jumbotron">   
-    <p class="lead">Implemente a API do github no projeto seguindo a documentação abaixo:</p>    
-    <hr class="my-4">    
+
+    <p class="lead">Implemente a API do github no projeto seguindo a documentação abaixo:</p>
+    <hr class="my-4">
     <p class="lead">
+        <image src="https://s-media-cache-ak0.pinimg.com/originals/3c/d5/67/3cd5679f54dc60811383649f9f6ea37d.png"></image>
         <a class="btn btn-primary btn-lg" target="_blank" href="https://docs.github.com/en" role="button">Visite a documentação</a>
+
     </p>
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        <table class="table">
-            <tr>
-                <th>Nome</th>
-                <th>Proprietario</th>
-                <th>Nome Completo</th>
-                <th>URL</th>
-                <th></th>
-            </tr>
 
-            @if (Model != null && Model.Results != null)
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Proprietario</th>
+            <th>Nome Completo</th>
+            <th>URL</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null && Model.Results != null)
+        {
+            foreach (var item in Model.Results)
             {
-                foreach (var item in Model.Results)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Owner.Login)
-                        </td>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Owner.Login)
+                    </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Url)
-                        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Url)
+                    </td>
 
-                        <td>
-                            @Html.ActionLink("Detalhe", "Details", new { Nome = item.Name })
-                        </td>
-                    </tr>
-                }
+                    <td class="text-right">
+                        <a >
+                            @Html.ActionLink("Detalhe", "Details", new { Nome = item.Name }, new { @class = "btn btn-info" })
+                        </a>
+                        
+                    </td>
+                </tr>
             }
-        </table>      
-    </div>
-</div>
-
+        }
+    </tbody>
+</table>
+    

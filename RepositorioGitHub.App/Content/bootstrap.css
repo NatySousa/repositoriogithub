@@ -3317,9 +3317,9 @@ fieldset[disabled] .btn-success.focus {
   background-color: #fff;
 }
 .btn-info {
-  color: #fff;
-  background-color: #5bc0de;
-  border-color: #46b8da;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #46b8da;
 }
 .btn-info:focus,
 .btn-info.focus {
@@ -6621,6 +6621,13 @@ button.close {
 .affix {
   position: fixed;
 }
+
+table .thead-dark th {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+}
+
 @-ms-viewport {
   width: device-width;
 }
